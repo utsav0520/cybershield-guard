@@ -20,6 +20,9 @@ const Header = () => {
             <a href="#benefits" className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">
               Benefits
             </a>
+            <a href="#pricing" className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">
+              Pricing
+            </a>
             <a href="#sample" className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">
               Sample Email
             </a>

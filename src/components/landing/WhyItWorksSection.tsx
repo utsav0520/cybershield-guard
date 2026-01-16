@@ -1,4 +1,5 @@
 import { RefreshCw, Eye, MessageSquare } from "lucide-react";
+import { AnimatedSection } from "@/hooks/useScrollAnimation";
 
 const reasons = [
   {
@@ -22,31 +23,30 @@ const WhyItWorksSection = () => {
   return (
     <section className="section-padding">
       <div className="section-container">
-        <div className="text-center mb-16">
+        <AnimatedSection className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
             Why This Approach Works
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
             Based on behavioral science and proven learning principles.
           </p>
-        </div>
+        </AnimatedSection>
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
           {reasons.map((reason, index) => (
-            <div
-              key={index}
-              className="relative p-8 rounded-2xl bg-gradient-to-b from-primary/5 to-transparent border border-primary/10"
-            >
-              <div className="inline-flex items-center justify-center w-14 h-14 rounded-xl bg-primary text-primary-foreground mb-6">
-                <reason.icon className="w-7 h-7" />
+            <AnimatedSection key={index} animation="fade-up" delay={index * 150}>
+              <div className="relative p-8 rounded-2xl bg-gradient-to-b from-primary/5 to-transparent border border-primary/10 h-full">
+                <div className="inline-flex items-center justify-center w-14 h-14 rounded-xl bg-primary text-primary-foreground mb-6">
+                  <reason.icon className="w-7 h-7" />
+                </div>
+                <h3 className="text-xl font-semibold text-foreground mb-4">
+                  {reason.title}
+                </h3>
+                <p className="text-muted-foreground leading-relaxed">
+                  {reason.description}
+                </p>
               </div>
-              <h3 className="text-xl font-semibold text-foreground mb-4">
-                {reason.title}
-              </h3>
-              <p className="text-muted-foreground leading-relaxed">
-                {reason.description}
-              </p>
-            </div>
+            </AnimatedSection>
           ))}
         </div>
       </div>
