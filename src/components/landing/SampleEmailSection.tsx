@@ -1,19 +1,20 @@
 import { AlertTriangle, CheckCircle, Mail, Clock } from "lucide-react";
+import { AnimatedSection } from "@/hooks/useScrollAnimation";
 
 const SampleEmailSection = () => {
   return (
     <section id="sample" className="section-padding bg-card">
       <div className="section-container">
-        <div className="text-center mb-16">
+        <AnimatedSection className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
             See What Your Team Receives
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
             Short, practical, and actionable. Here's a sample of our weekly security awareness email.
           </p>
-        </div>
+        </AnimatedSection>
 
-        <div className="max-w-2xl mx-auto">
+        <AnimatedSection animation="scale-in" delay={200} className="max-w-2xl mx-auto">
           {/* Email card */}
           <div className="card-elevated overflow-hidden shadow-security">
             {/* Email header */}
@@ -78,7 +79,7 @@ const SampleEmailSection = () => {
               </div>
             </div>
           </div>
-        </div>
+        </AnimatedSection>
       </div>
     </section>
   );

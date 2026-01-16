@@ -1,11 +1,12 @@
 import { ArrowRight, Shield } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { AnimatedSection } from "@/hooks/useScrollAnimation";
 
 const CTASection = () => {
   return (
     <section className="section-padding bg-primary">
       <div className="section-container">
-        <div className="max-w-3xl mx-auto text-center">
+        <AnimatedSection className="max-w-3xl mx-auto text-center">
           <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-primary-foreground/10 mb-6">
             <Shield className="w-8 h-8 text-primary-foreground" />
           </div>
@@ -33,7 +34,7 @@ const CTASection = () => {
               Schedule a Demo
             </Button>
           </div>
-        </div>
+        </AnimatedSection>
       </div>
     </section>
   );

@@ -1,4 +1,5 @@
 import { AlertTriangle, Users, DollarSign } from "lucide-react";
+import { AnimatedSection } from "@/hooks/useScrollAnimation";
 
 const stats = [
   {
@@ -29,7 +30,7 @@ const ProblemSection = () => {
   return (
     <section className="section-padding bg-card">
       <div className="section-container">
-        <div className="text-center mb-16">
+        <AnimatedSection className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
             Your Biggest Security Risk?{" "}
             <span className="text-destructive">Human Error</span>
@@ -37,26 +38,25 @@ const ProblemSection = () => {
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
             Cybercriminals don't hack in—they log in. Most attacks succeed because employees unknowingly click, share, or trust the wrong thing.
           </p>
-        </div>
+        </AnimatedSection>
 
         {/* Stats */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16">
           {stats.map((item, index) => (
-            <div
-              key={index}
-              className="card-elevated p-8 text-center"
-            >
-              <div className="inline-flex items-center justify-center w-14 h-14 rounded-xl bg-destructive/10 text-destructive mb-4">
-                <item.icon className="w-7 h-7" />
+            <AnimatedSection key={index} animation="scale-in" delay={index * 100}>
+              <div className="card-elevated p-8 text-center h-full">
+                <div className="inline-flex items-center justify-center w-14 h-14 rounded-xl bg-destructive/10 text-destructive mb-4">
+                  <item.icon className="w-7 h-7" />
+                </div>
+                <div className="text-4xl font-bold text-foreground mb-2">{item.stat}</div>
+                <p className="text-muted-foreground">{item.label}</p>
               </div>
-              <div className="text-4xl font-bold text-foreground mb-2">{item.stat}</div>
-              <p className="text-muted-foreground">{item.label}</p>
-            </div>
+            </AnimatedSection>
           ))}
         </div>
 
         {/* Threats list */}
-        <div className="max-w-2xl mx-auto">
+        <AnimatedSection className="max-w-2xl mx-auto" delay={300}>
           <h3 className="text-xl font-semibold text-foreground text-center mb-6">
             Common attacks targeting your employees:
           </h3>
@@ -71,7 +71,7 @@ const ProblemSection = () => {
               </div>
             ))}
           </div>
-        </div>
+        </AnimatedSection>
       </div>
     </section>
   );

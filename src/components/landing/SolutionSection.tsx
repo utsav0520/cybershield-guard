@@ -1,4 +1,5 @@
 import { Mail, Clock, Zap, Brain } from "lucide-react";
+import { AnimatedSection } from "@/hooks/useScrollAnimation";
 
 const features = [
   {
@@ -27,7 +28,7 @@ const SolutionSection = () => {
   return (
     <section className="section-padding">
       <div className="section-container">
-        <div className="text-center mb-16">
+        <AnimatedSection className="text-center mb-16">
           <div className="inline-flex items-center gap-2 px-4 py-2 mb-4 bg-success/10 text-success rounded-full text-sm font-medium">
             The Solution
           </div>
@@ -38,24 +39,27 @@ const SolutionSection = () => {
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
             Forget boring training videos. Our weekly micro-email program delivers practical, memorable security lessons that fit into any workday.
           </p>
-        </div>
+        </AnimatedSection>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {features.map((feature, index) => (
-            <div
+            <AnimatedSection
               key={index}
-              className="card-elevated p-8 group hover:border-primary/30 transition-colors"
+              animation={index % 2 === 0 ? "slide-left" : "slide-right"}
+              delay={index * 100}
             >
-              <div className="inline-flex items-center justify-center w-12 h-12 rounded-xl bg-primary/10 text-primary mb-5 group-hover:bg-primary group-hover:text-primary-foreground transition-colors">
-                <feature.icon className="w-6 h-6" />
+              <div className="card-elevated p-8 group hover:border-primary/30 transition-colors h-full">
+                <div className="inline-flex items-center justify-center w-12 h-12 rounded-xl bg-primary/10 text-primary mb-5 group-hover:bg-primary group-hover:text-primary-foreground transition-colors">
+                  <feature.icon className="w-6 h-6" />
+                </div>
+                <h3 className="text-xl font-semibold text-foreground mb-3">
+                  {feature.title}
+                </h3>
+                <p className="text-muted-foreground leading-relaxed">
+                  {feature.description}
+                </p>
               </div>
-              <h3 className="text-xl font-semibold text-foreground mb-3">
-                {feature.title}
-              </h3>
-              <p className="text-muted-foreground leading-relaxed">
-                {feature.description}
-              </p>
-            </div>
+            </AnimatedSection>
           ))}
         </div>
       </div>
